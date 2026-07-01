@@ -1,0 +1,15 @@
+pandas
+numpy
+matplotlib
+scikit-learn
+lightgbm
+xgboost
+catboost
+optuna
+category_encoders
+imbalanced-learn
+shap
+joblib
+tqdm
+jupyter
+notebook
