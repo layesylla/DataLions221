@@ -9,8 +9,8 @@ RAW_DATA = DATA_DIR / "raw"
 SUBMISSION_DIR = DATA_DIR / "submissions"
 STACK_DIR = DATA_DIR / "stack"
 
-STACK_DIR.mkdir(exist_ok=True)
+STACK_DIR.mkdir(parents=True, exist_ok=True)
 MODEL_DIR = PROJECT_ROOT / "models"
 
-MODEL_DIR.mkdir(exist_ok=True)
+MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
