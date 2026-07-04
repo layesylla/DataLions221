@@ -1,37 +1,8 @@
-"""
-Feature engineering étendu — v2
 
-Ce module NE REMPLACE PAS src/feature_engineering.py, il l'étend.
-On garde toutes les features existantes (build_features) et on ajoute
-des features à haute valeur pour la détection de fraude mobile money,
-inspirées des patterns connus (PaySim / mobile money) :
-
-  1. Features d'erreur de solde (errorBalanceOrig / errorBalanceDest)
-     -> historiquement les features les PLUS prédictives sur ce type
-        de données (transferts + cash-out simulés). Un compte source
-        frauduleux vide souvent le compte, un compte destination
-        frauduleux (mule) reste à 0 avant/après malgré le montant reçu.
-  2. Flag de "vidage complet" du compte (full drain).
-  3. Log-amount (la distribution est très asymétrique, cf EDA).
-  4. Fréquence de la paire (origin_account, destination_account) —
-     détecte les allers-retours répétés entre deux mêmes comptes.
-  5. Flags "premier compte vu" (nouveaux comptes = souvent plus risqués).
-  6. Z-score du montant côté destination (le fichier actuel ne le fait
-     que côté origin).
-  7. Auto-transaction (origin == destination).
-
-Toutes les stats d'agrégation utilisées ici doivent être calculées sur
-train UNIQUEMENT puis appliquées à train/valid/test (comme le fait déjà
-aggregation.py) pour ne pas fuiter d'information.
-"""
 
 import numpy as np
 import pandas as pd
 
-
-# ==========================================================
-# ERREUR DE SOLDE (feature la plus discriminante sur ce type de data)
-# ==========================================================
 
 def add_balance_error_features(df):
 
@@ -64,10 +35,6 @@ def add_balance_error_features(df):
 
     return df
 
-
-# ==========================================================
-# VIDAGE DE COMPTE / COMPTE "MULE"
-# ==========================================================
 
 def add_drain_features(df):
 
