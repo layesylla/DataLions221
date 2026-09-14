@@ -1,33 +1,82 @@
-# Contexte
-Les services de mobile money occupent une place essentielle dans l’économie numérique africaine. Ils permettent d’envoyer de l’argent, de recevoir des paiements, de régler des factures, d’effectuer des dépôts, des retraits ou des transferts, souvent sans passer par une agence bancaire traditionnelle.
+# Mobile Money Fraud Detection
 
-Cette accessibilité a profondément transformé l’inclusion financière. Cependant, cette croissance rapide s’accompagne d’un défi majeur : la fraude. Transactions anormales, comptes compromis, comportements suspects ou tentatives de dissimulation peuvent fragiliser la confiance dans les systèmes financiers numériques. Pour les opérateurs, les fintechs, les banques et les régulateurs, détecter rapidement ces comportements est devenu une priorité absolue.
+A machine learning project focused on detecting potentially fraudulent mobile money transactions.
 
-# Objectif
-Votre mission est de concevoir un modèle de machine learning capable d’estimer la probabilité qu’une transaction mobile money soit frauduleuse. Pour chaque transaction du fichier de test, vous devez prédire une probabilité comprise entre 0 et 1 :
+The project was developed as part of a team challenge under the **DataLions221** team.
 
-0 : signifie que la transaction est très probablement normale.
-1 : signifie que la transaction est très probablement frauduleuse.
-Le fichier de soumission devra contenir deux colonnes : id et target (votre probabilité estimée de fraude).
+## Objective
 
-# Evaluation
+The main objective is to build a classification model capable of distinguishing between legitimate and potentially fraudulent mobile money transactions.
 
-La métrique officielle pour évaluer les modèles est l'Average Precision (aussi appelée aire sous la courbe précision-rappel ou PR-AUC). Cette métrique est particulièrement adaptée aux problèmes de fraude où les classes sont fortement déséquilibrées, car elle récompense les modèles capables de placer les transactions frauduleuses en haut du classement de risque.
+The project addresses common challenges in fraud detection, including:
 
-L’accuracy n’est pas adaptée ici. Le classement de la compétition s'appuiera sur un score public (30% du test set) pour suivre vos progrès, et sur un score privé (100% du test set) qui déterminera le classement final.
+- Imbalanced classes
+- False positives and false negatives
+- Data preprocessing
+- Feature engineering
+- Model evaluation
+- Avoiding data leakage
 
-# Description
-Le jeu de données anonymisé fourni regroupe des transactions mobile money. Il contient un fichier d’entraînement (train.csv avec la cible fraud_flag), un fichier de test (test.csv), un fichier d'exemple de soumission et un notebook de démarrage.
+## Approach
 
-Les données mélangent plusieurs dimensions : des données numériques (montants rescalés, soldes avant/après des comptes initiateurs et destinataires), des données catégorielles (catégorie d'opération anonymisée), ainsi qu'une dimension temporelle simulée (period). Chaque ligne correspond à une transaction unique identifiée par id.
+The project follows a typical machine learning workflow:
 
-# Attentes envers les participants
-Il s’agit d’un problème complexe de classification binaire sur des données transactionnelles. La difficulté majeure ne consiste pas seulement à reconnaître qu’une catégorie d’opération est plus risquée, mais surtout à distinguer les fraudes des transactions normales à l’intérieur même des comportements à risque.
+1. Data loading and exploration
+2. Data cleaning and preprocessing
+3. Feature engineering
+4. Preparation of training and evaluation datasets
+5. Model training
+6. Model evaluation
+7. Analysis of fraud detection performance
 
-Les participants devront construire des variables comportementales robustes (comme des agrégations ou des fréquences) tout en évitant le surapprentissage sur les identifiants de comptes anonymisés. Il est également crucial de produire de véritables probabilités bien calibrées.
+The implemented models and experiments use Python-based machine learning tools, including **scikit-learn** and **CatBoost**.
 
-# Un defis a la hauteur des talents africains
+## Technologies
 
-Cette épreuve vous invite à construire un modèle à partir de véritables problématiques rencontrées sur le continent. Ce challenge n’est donc pas seulement un exercice de machine learning, il touche à un enjeu sociétal concret : sécuriser les paiements numériques pour des millions d'utilisateurs et renforcer la confiance dans l'inclusion financière africaine.
+- Python
+- pandas
+- NumPy
+- scikit-learn
+- CatBoost
+- Jupyter Notebook
+- Machine Learning
+- Classification
+- Fraud Detection
 
-Nous vous souhaitons une excellente compétition, à la hauteur de vos ambitions !
+## Evaluation
+
+The project considers classification metrics that are relevant to fraud detection, such as:
+
+- Precision
+- Recall
+- F1-score
+- ROC-AUC
+- Confusion matrix
+
+Particular attention is given to the balance between detecting fraudulent transactions and limiting false alerts.
+
+## My Contribution
+
+This was a team project developed under the **DataLions221** team.
+
+I personally implemented and contributed to most of the project, including:
+
+- Data preprocessing
+- Feature engineering
+- Machine learning experimentation
+- Model training
+- Model evaluation
+- Analysis of fraud detection results
+
+## Repository
+
+This repository contains the source code and notebooks used during the project.
+
+The project can be further extended through:
+
+- More advanced feature engineering
+- Cost-sensitive learning
+- Improved imbalance handling
+- Model calibration
+- Explainable AI techniques
+- Deployment as an online fraud detection service
