@@ -39,9 +39,6 @@ The implemented models and experiments use Python-based machine learning tools, 
 - scikit-learn
 - CatBoost
 - Jupyter Notebook
-- Machine Learning
-- Classification
-- Fraud Detection
 
 ## Evaluation
 
@@ -71,12 +68,13 @@ I personally implemented and contributed to most of the project, including:
 ## Repository
 
 This repository contains the source code and notebooks used during the project.
+The train.csv and test.csv files are too large it's why they aren't in the repo.
 
 The project can be further extended through:
 
 - More advanced feature engineering
 - Cost-sensitive learning
 - Improved imbalance handling
-- Model calibration
+- Model calibration 
 - Explainable AI techniques
 - Deployment as an online fraud detection service
